@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "NotedAI - Smart Note Assistant",
+  "version": "1.0.0",
+  "description": "Captures spoken conversations in real time, transcribes them, and summarizes key points.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "tabs",
+    "scripting"
+  ],
+  "optional_permissions": [
+    "audioCapture"
+  ],
+  "host_permissions": [
+    "https://*.notedai.tech/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+}
