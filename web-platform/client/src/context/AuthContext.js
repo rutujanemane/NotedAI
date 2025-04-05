@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
             api.defaults.headers.common['x-auth-token'] = token;
             
             // Get user data
-            const res = await api.get('/api/auth/me');
+            const res = await api.get(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/auth/me`);
             setUser(res.data);
           }
         } catch (error) {
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
   // Handle Google OAuth login
   const handleGoogleLogin = () => {
-    window.location.href = '/api/auth/google';
+    window.location.href = `${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/auth/google`;
   };
 
   // Handle OAuth callback
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     api.defaults.headers.common['x-auth-token'] = token;
     
     try {
-      const res = await api.get('/api/auth/me');
+      const res = await api.get(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/auth/me`);
       setUser(res.data);
       navigate('/dashboard');
     } catch (error) {
