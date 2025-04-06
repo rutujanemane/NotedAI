@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { getSessions } from '../services/sessionService';
 import { getWellnessTips } from '../services/wellnessService';
+import AudioRecorder from './AudioRecorder';
 import { ClockIcon, DocumentTextIcon, TagIcon, BoltIcon } from '@heroicons/react/24/outline';
 import moment from 'moment';
 
@@ -191,20 +192,7 @@ const Dashboard = () => {
             Upload Audio
           </Link>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Chrome Extension</h3>
-          <p className="text-gray-600 mb-4">
-            Install our Chrome Extension to capture and transcribe live conversations.
-          </p>
-          <a
-            href="#"
-            className="btn btn-primary inline-block"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get Extension
-          </a>
-        </div>
+        <AudioRecorder />
       </div>
     </div>
   );
