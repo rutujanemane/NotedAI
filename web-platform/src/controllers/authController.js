@@ -20,10 +20,11 @@ const googleCallback = async (req, res) => {
     const token = generateToken(req.user);
     
     // Send response with token and user data
-    res.json({
-      token,
-      user: { _id, name, email, googleId, profilePicture }
-    });
+    // res.json({
+    //   token,
+    //   user: { _id, name, email, googleId, profilePicture }
+    // });
+    res.redirect(`http://localhost:3000/auth/callback?token=${token}`);
   } catch (error) {
     console.error('Auth error:', error);
     res.status(500).json({ message: 'Authentication failed' });
