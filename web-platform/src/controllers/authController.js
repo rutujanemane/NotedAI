@@ -24,8 +24,7 @@ const googleCallback = async (req, res) => {
     //   token,
     //   user: { _id, name, email, googleId, profilePicture }
     // });
-    res.redirect(`http://localhost:3000/auth/callback?token=${token}`);
-    // res.redirect(`${process.env.CLIENT_URL}/auth/callback?token=${token}`);
+    res.redirect(`${process.env.CLIENT_URL}/auth/callback?token=${token}`);
 
   } catch (error) {
     console.error('Auth error:', error);
