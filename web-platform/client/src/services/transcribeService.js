@@ -9,6 +9,6 @@ export const transcribeAudioFile = async (audioFile) => {
       'Content-Type': 'multipart/form-data'
     }
   });
-  
+    
   return response.data;
 };
