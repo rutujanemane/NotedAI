@@ -35,9 +35,10 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.use(cors({
-  origin: 'http://localhost:3000', // or '*' for testing
+  origin: process.env.CLIENT_URL, // or '*' for testing
   credentials: true,
 }));
+
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
